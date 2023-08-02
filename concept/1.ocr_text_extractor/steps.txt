@@ -1,0 +1,3 @@
+run the exe file and add the path of the exe file to the environmental variable path 
+
+type tesseract in cmd to check it's correctly on installed or not
