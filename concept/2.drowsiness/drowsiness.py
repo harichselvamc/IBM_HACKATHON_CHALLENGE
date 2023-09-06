@@ -13,6 +13,12 @@ import cv2
 def sound_alarm(path):
     # play an alarm sound
     playsound.playsound(path)
+def stopp():
+    key = cv2.waitKey(1) & 0xFF
+
+        # if the `q` key was pressed, break from the loop
+    if key == ord("q"):
+        pass
 
 def eye_aspect_ratio(eye):
     # compute the euclidean distances between the two sets of

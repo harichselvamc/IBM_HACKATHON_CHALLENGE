@@ -1,0 +1,70 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Camera Options</title>
+    <style>
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        background-color: #f0f0f0;
+      }
+
+      .options-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        border: 3px solid blue;
+        padding: 10px;
+      }
+
+      .option-item {
+        margin: 5px;
+      }
+
+      h1 {
+        text-align: center;
+        margin-top: 0;
+      }
+
+      .error-message {
+        color: red;
+        margin-top: 5px;
+      }
+    </style>
+    <script>
+      function validateForm() {
+        const ipOption = document.getElementById('ip');
+        const systemOption = document.getElementById('system');
+        const errorMessage = document.getElementById('error-message');
+
+        if (!ipOption.checked && !systemOption.checked) {
+          errorMessage.textContent = 'Please select an option.';
+          return false;
+        }
+
+        errorMessage.textContent = '';
+        return true;
+      }
+    </script>
+  </head>
+  <body>
+    <div class="options-container">
+      <h1>Camera Options</h1>
+      <form action="{{ url_for('index') }}" method="post" onsubmit="return validateForm()">
+        <div class="option-item">
+          <input type="radio" id="ip" name="camera_choice" value="ip">
+          <label for="ip">IP Camera</label>
+        </div>
+        <div class="option-item">
+          <input type="radio" id="system" name="camera_choice" value="system">
+          <label for="system">System Camera</label>
+        </div>
+        <input type="submit" value="Start">
+      </form>
+      <div class="error-message" id="error-message"></div>
+    </div>
+  </body>
+</html>
